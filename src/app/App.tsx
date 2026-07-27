@@ -41,11 +41,11 @@ const RATIOS = ["1:1", "4:3", "3:4", "16:9", "9:16"];
 
 const GEN_LINES = [
   "Summoning the royal atelier of Emperor Jahangir…",
-  "Composing the jharoka backdrop in lapis lazuli…",
-  "Mixing ultramarine, saffron, and shell-gold pigments…",
-  "Rendering silk textile patterns with the finest brush…",
-  "Applying gold highlights to the court figures…",
-  "Sealing the miniature with a saffron wash…",
+  "Sketching the composition in the Mughal style…",
+  "Laying down the colours — saffron, emerald, and gold…",
+  "Painting the silk robes and fine court details…",
+  "Adding the gold highlights to figures and borders…",
+  "Finishing the miniature with a final flourish…",
 ];
 
 const ARTWORKS = [
@@ -66,7 +66,7 @@ const STATS = [
   { label: "Artworks Created", value: "2,847", icon: ImageIcon, delta: "+23%" },
   { label: "This Month", value: "143", icon: TrendingUp, delta: "+8%" },
   { label: "Collections", value: "12", icon: FolderOpen, delta: "4 new" },
-  { label: "AI Tokens Used", value: "89.4k", icon: Zap, delta: "11% left" },
+  { label: "Credits Used", value: "89.4k", icon: Zap, delta: "11% left" },
 ];
 
 // ─── Utils ────────────────────────────────────────────────────────────────────
@@ -250,7 +250,7 @@ function Sidebar({ page, setPage }: { page: Page; setPage: (p: Page) => void }) 
             <Crown size={11} className="text-[#C8A14B]" />
             <span className="text-[11px] font-semibold text-[#C8A14B] tracking-wide">PRO PLAN</span>
           </div>
-          <div className="text-[11px] text-[#6F6F6F] mb-2">89,400 / 100,000 tokens</div>
+          <div className="text-[11px] text-[#6F6F6F] mb-2">89,400 / 100,000 credits</div>
           <div className="h-1 rounded-full bg-[#C8A14B]/15">
             <div className="h-full w-[89%] rounded-full bg-gradient-to-r from-[#C8A14B] to-[#d4b060]"/>
           </div>
@@ -377,7 +377,7 @@ function LandingPage({ setPage }: { setPage: (p: Page) => void }) {
         <div className="relative z-10 w-full max-w-5xl mx-auto px-6 lg:px-8 py-24">
           <div className="flex justify-center mb-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#C8A14B]/30 bg-[#C8A14B]/8 text-[#C8A14B] text-[11px] font-semibold tracking-wide">
-              <Sparkles size={11} /> FLUX.1 Dev &nbsp;·&nbsp; Mughal LoRA v2.3 &nbsp;·&nbsp; LLM-Enhanced
+              <Sparkles size={11} /> AI-Powered &nbsp;·&nbsp; Mughal Style &nbsp;·&nbsp; Historically Inspired
             </div>
           </div>
           <h1 className="text-center text-[#222] dark:text-[#F5F0E8] leading-[1.05] mb-6"
@@ -441,13 +441,13 @@ function LandingPage({ setPage }: { setPage: (p: Page) => void }) {
             How the Atelier Works
           </h2>
           <p className="text-center text-[#6F6F6F] text-sm max-w-md mx-auto mb-16">
-            Three layers of AI craft transform your words into imperial art
+            Three simple steps to bring your Mughal vision to life
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { step: "01", title: "Describe Your Vision", body: "Write a scene in plain language. Our LLM enriches it with historical context — the right pigments, composition conventions, and court details for your chosen era.", icon: Feather },
-              { step: "02", title: "Imperial AI Renders", body: "FLUX.1 Dev trained on our bespoke Mughal LoRA synthesizes the image. Gold highlights, jali screens, intricate border motifs — all historically faithful.", icon: Sparkles },
-              { step: "03", title: "Refine & Export", body: "Zoom, annotate, remix. Download in 4K with embedded prompt metadata, era classification, and your custom annotations.", icon: Download },
+              { step: "01", title: "Describe Your Vision", body: "Write a scene in plain language. We automatically add the right historical details — colors, composition, and court elements that match your chosen era.", icon: Feather },
+              { step: "02", title: "Your Artwork Takes Shape", body: "Our AI creates a painting with authentic gold highlights, marble screens, and intricate border patterns — all faithful to the Mughal period you selected.", icon: Sparkles },
+              { step: "03", title: "Refine & Download", body: "Zoom in, remix, and adjust. Download your artwork in high resolution with all your notes and settings saved alongside it.", icon: Download },
             ].map(({ step, title, body, icon: Icon }) => (
               <GlassCard key={step} gold className="p-8 text-center hover:shadow-[0_14px_44px_rgba(200,161,75,0.10)] transition-all duration-300">
                 <div className="mb-3 select-none" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "3.5rem", fontWeight: 700, color: "rgba(200,161,75,0.18)", lineHeight: 1 }}>{step}</div>
@@ -472,12 +472,12 @@ function LandingPage({ setPage }: { setPage: (p: Page) => void }) {
           <p className="text-center text-[#6F6F6F] text-sm mb-16">Every feature built for serious artists and historians</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { title: "Historical Era Modes", body: "Switch between four imperial eras — each with distinct stylistic conventions, palette preferences, and compositional rules.", icon: Crown, color: "#C8A14B" },
-              { title: "LLM Prompt Enhancement", body: "Our fine-tuned model adds historically accurate court details, material descriptions, and artistic conventions automatically.", icon: Wand2, color: "#205B4E" },
-              { title: "4K Export & Metadata", body: "Download full-resolution images with embedded prompt data, era classification, generation parameters, and custom annotations.", icon: Download, color: "#C8A14B" },
-              { title: "Style Reference Upload", body: "Upload a reference miniature and the system extracts compositional, chromatic, and figural characteristics to guide generation.", icon: Palette, color: "#6A2332" },
-              { title: "Collections & Folders", body: "Organize generations into themed collections — by era, project, or client. Share curated collections with a single link.", icon: FolderOpen, color: "#205B4E" },
-              { title: "Infinite Variation", body: "Generate 8 simultaneous variations of any prompt, each subtly different. Lock elements across variations for precise control.", icon: Layers, color: "#C8A14B" },
+              { title: "Four Historical Eras", body: "Choose from Akbar, Jahangir, Shah Jahan, or Aurangzeb — each era has its own distinct look, colors, and artistic style.", icon: Crown, color: "#C8A14B" },
+              { title: "Smart Description Helper", body: "We automatically fill in the right historical details for you — the colors, court elements, and artistic touches that bring your scene to life.", icon: Wand2, color: "#205B4E" },
+              { title: "High-Resolution Download", body: "Save your finished artwork in full resolution, with your original description and all your chosen settings stored alongside it.", icon: Download, color: "#C8A14B" },
+              { title: "Style Reference Upload", body: "Upload a miniature painting you love, and we'll pick up its composition, colors, and style to guide your next creation.", icon: Palette, color: "#6A2332" },
+              { title: "Collections & Folders", body: "Keep your artworks organized by era, theme, or project. Share any collection with a single link.", icon: FolderOpen, color: "#205B4E" },
+              { title: "Multiple Variations", body: "Create several versions of the same scene at once and keep the one you love most — or mix elements from different results.", icon: Layers, color: "#C8A14B" },
             ].map(({ title, body, icon: Icon, color }) => (
               <GlassCard key={title} gold className="p-6 group hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(200,161,75,0.09)]">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ background: `${color}16` }}>
@@ -780,7 +780,7 @@ function StudioPage({ setPage }: { setPage: (p: Page) => void }) {
             </div>
             <div>
               <div className="flex justify-between text-[11px] mb-2">
-                <span className="text-[#6F6F6F]">Diffusion Steps</span>
+                <span className="text-[#6F6F6F]">Detail Level</span>
                 <span className="font-semibold text-[#C8A14B]">{steps}</span>
               </div>
               <input type="range" min={20} max={80} value={steps} onChange={e => setSteps(+e.target.value)}
@@ -795,14 +795,7 @@ function StudioPage({ setPage }: { setPage: (p: Page) => void }) {
         {/* Prompt bar */}
         <div className="flex-shrink-0 px-5 py-4 border-b border-[#C8A14B]/12 bg-[#FFFDF8]/60 dark:bg-[#0E0E0C]/60 backdrop-blur-md">
           <div className="flex items-center justify-between mb-2">
-            <label className="text-[10px] font-semibold text-[#6F6F6F] uppercase tracking-widest">Prompt</label>
-            <div className="flex items-center gap-2.5">
-              <span className="text-[11px] text-[#6F6F6F]">LLM Enhance</span>
-              <button onClick={() => setEnhance(!enhance)}
-                className={cn("relative w-8 h-4 rounded-full transition-all duration-300", enhance ? "bg-[#205B4E]" : "bg-black/15 dark:bg-white/15")}>
-                <div className={cn("absolute top-0.5 w-3 h-3 rounded-full bg-white shadow transition-all", enhance ? "left-[17px]" : "left-0.5")}/>
-              </button>
-            </div>
+            <label className="text-[10px] font-semibold text-[#6F6F6F] uppercase tracking-widest">Your Description</label>
           </div>
           <textarea ref={ta} value={prompt} onChange={e => setPrompt(e.target.value)} rows={2}
             className="w-full bg-transparent text-sm text-[#222] dark:text-[#F5F0E8] placeholder:text-[#6F6F6F]/45 resize-none outline-none leading-relaxed" />
@@ -810,7 +803,7 @@ function StudioPage({ setPage }: { setPage: (p: Page) => void }) {
             <div className="mt-2.5 pt-2.5 border-t border-[#205B4E]/15">
               <div className="flex items-center gap-1.5 mb-1">
                 <Wand2 size={10} className="text-[#205B4E]" />
-                <span className="text-[10px] font-semibold text-[#205B4E] uppercase tracking-wider">LLM Enhanced</span>
+                <span className="text-[10px] font-semibold text-[#205B4E] uppercase tracking-wider">Enhanced Description</span>
               </div>
               <p className="text-[11px] text-[#6F6F6F] leading-relaxed line-clamp-2">{enhancedPrompt}</p>
             </div>
@@ -883,7 +876,7 @@ function StudioPage({ setPage }: { setPage: (p: Page) => void }) {
         <div className="flex-1 overflow-y-auto p-4">
           {tab === "settings" && (
             <div className="space-y-4">
-              {[["Seed", seed], ["CFG Scale", "7.5"], ["Sampler", "DPM++ 2M"]].map(([label, val]) => (
+              {[["Variation Seed", seed], ["Creativity", "7.5"], ["Render Style", "Balanced"]].map(([label, val]) => (
                 <div key={label}>
                   <label className="block text-[10px] font-semibold text-[#6F6F6F] uppercase tracking-widest mb-1.5">{label}</label>
                   <div className="flex items-center justify-between px-3 py-2.5 rounded-xl bg-black/4 dark:bg-white/5 border border-[#C8A14B]/12">
@@ -893,7 +886,7 @@ function StudioPage({ setPage }: { setPage: (p: Page) => void }) {
                 </div>
               ))}
               <div>
-                <label className="block text-[10px] font-semibold text-[#6F6F6F] uppercase tracking-widest mb-1.5">Negative Prompt</label>
+                <label className="block text-[10px] font-semibold text-[#6F6F6F] uppercase tracking-widest mb-1.5">Exclude From Image</label>
                 <textarea value={negPrompt} onChange={e => setNegPrompt(e.target.value)} rows={3}
                   className="w-full px-3 py-2.5 rounded-xl bg-black/4 dark:bg-white/5 border border-[#C8A14B]/12 text-[11px] text-[#6F6F6F] resize-none outline-none focus:border-[#C8A14B]/30 transition-colors leading-relaxed" />
               </div>
@@ -1122,7 +1115,7 @@ function DashboardPage({ setPage }: { setPage: (p: Page) => void }) {
           </div>
           <div className="mb-5">
             <div className="flex justify-between text-[11px] mb-2">
-              <span className="text-[#6F6F6F]">Monthly tokens</span>
+              <span className="text-[#6F6F6F]">Monthly credits</span>
               <span className="font-semibold text-[#C8A14B]">89,400 / 100,000</span>
             </div>
             <div className="h-1.5 rounded-full bg-[#C8A14B]/12">
@@ -1130,7 +1123,7 @@ function DashboardPage({ setPage }: { setPage: (p: Page) => void }) {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-2">
-            {[["Resets", "Aug 1, 2025"], ["Plan", "Pro Annual"], ["Artworks", "Unlimited"], ["Export", "4K + RAW"]].map(([k, v]) => (
+            {[["Resets", "Aug 1, 2025"], ["Plan", "Pro Annual"], ["Artworks", "Unlimited"], ["Download", "Full Quality"]].map(([k, v]) => (
               <div key={k} className="px-3 py-2.5 rounded-xl bg-black/4 dark:bg-white/5">
                 <div className="text-[10px] text-[#6F6F6F] mb-0.5">{k}</div>
                 <div className="text-[12px] text-[#222] dark:text-[#F5F0E8] font-semibold">{v}</div>
@@ -1187,9 +1180,9 @@ function ViewerPage({ setPage }: { setPage: (p: Page) => void }) {
           {/* Prompt toggle */}
           <div className="mb-5">
             <div className="flex gap-2 mb-3">
-              <button onClick={() => setShowEnhanced(false)} className={cn("px-3 py-1.5 rounded-full text-[11px] font-semibold border transition-all", !showEnhanced ? "bg-[#C8A14B] text-white border-[#C8A14B]" : "border-black/10 text-[#6F6F6F] dark:border-white/10")}>Your Prompt</button>
+              <button onClick={() => setShowEnhanced(false)} className={cn("px-3 py-1.5 rounded-full text-[11px] font-semibold border transition-all", !showEnhanced ? "bg-[#C8A14B] text-white border-[#C8A14B]" : "border-black/10 text-[#6F6F6F] dark:border-white/10")}>Your Description</button>
               <button onClick={() => setShowEnhanced(true)} className={cn("px-3 py-1.5 rounded-full text-[11px] font-semibold border transition-all flex items-center gap-1", showEnhanced ? "bg-[#205B4E] text-white border-[#205B4E]" : "border-black/10 text-[#6F6F6F] dark:border-white/10")}>
-                <Wand2 size={9} /> LLM Enhanced
+                <Wand2 size={9} /> Enhanced Version
               </button>
             </div>
             <div className="p-4 rounded-xl bg-black/4 dark:bg-white/5 border border-[#C8A14B]/12 text-[12px] leading-relaxed text-[#6F6F6F]">
@@ -1201,7 +1194,7 @@ function ViewerPage({ setPage }: { setPage: (p: Page) => void }) {
 
           {/* Metadata */}
           <div className="border-t border-[#C8A14B]/10 pt-4">
-            {[["Model", "FLUX.1 Dev + Mughal LoRA v2.3"], ["Era", `${art.era} (1605–1627)`], ["Scene", "Court Scene"], ["Steps", "40"], ["CFG Scale", "7.5"], ["Seed", "2,847,319"], ["Generated", "23 Jul 2025, 14:32 IST"]].map(([k, v]) => (
+            {[["Style", "Mughal Miniature"], ["Era", `${art.era} (1605–1627)`], ["Scene", "Court Scene"], ["Detail Level", "High"], ["Creativity", "7.5"], ["Variation", "2,847,319"], ["Created", "23 Jul 2025, 14:32 IST"]].map(([k, v]) => (
               <div key={k} className="flex items-start gap-3 py-2 border-b border-[#C8A14B]/7 last:border-0">
                 <span className="text-[11px] text-[#6F6F6F] w-20 flex-shrink-0">{k}</span>
                 <span className="text-[11px] text-[#222] dark:text-[#F5F0E8] flex-1 font-medium">{v}</span>
