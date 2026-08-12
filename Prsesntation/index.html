@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire & Ink - Final Tech Stack (v1.0)</title>
+    <meta name="description" content="Simplified Tech Stack & Architecture for Mughal Miniature AI Generation.">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="ambient-bg"></div>
+
+    <div class="container">
+        <header>
+            <h1>Empire & Ink</h1>
+            <p>Complete Tech Stack (Version 1.0) — Simplified & Streamlined for Mughal Miniature AI Generation.</p>
+        </header>
+
+        <h2 class="section-title">Core Tech Stack</h2>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));">
+            
+            <!-- Frontend -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i data-lucide="layout"></i></div>
+                    <div class="card-title">Frontend Studio</div>
+                </div>
+                <ul class="tech-list">
+                    <li class="tech-item">
+                        <div class="tech-name">React 18 + Vite 6</div>
+                        <div class="tech-purpose">Fast Single-Page Application with an instant interactive canvas and live code updates.</div>
+                    </li>
+                    <li class="tech-item">
+                        <div class="tech-name">TypeScript + Tailwind CSS v4</div>
+                        <div class="tech-purpose">Type-safe components styled with curated Mughal color palettes.</div>
+                    </li>
+                    <li class="tech-item">
+                        <div class="tech-name">Lucide Icons</div>
+                        <div class="tech-purpose">Crisp royal court iconography and clean SVG icons.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Backend & Auth -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i data-lucide="server"></i></div>
+                    <div class="card-title">Backend & Auth</div>
+                </div>
+                <ul class="tech-list">
+                    <li class="tech-item">
+                        <div class="tech-name">FastAPI (Python 3.12)</div>
+                        <div class="tech-purpose">High-speed async API coordinating AI models and workflows.</div>
+                    </li>
+                    <li class="tech-item">
+                        <div class="tech-name">JWT + bcrypt Auth</div>
+                        <div class="tech-purpose">Secure token authentication and password hashing.</div>
+                    </li>
+                    <li class="tech-item">
+                        <div class="tech-name">SQLAlchemy + Pydantic v2</div>
+                        <div class="tech-purpose">Type-safe database ORM and request data validation.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- AI & GPU Engine -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i data-lucide="cpu"></i></div>
+                    <div class="card-title">AI & GPU Engine</div>
+                </div>
+                <ul class="tech-list">
+                    <li class="tech-item">
+                        <div class="tech-name">Flux 1 dev + Custom LoRA</div>
+                        <div class="tech-purpose">Generates authentic Mughal miniature brushwork and pigments.</div>
+                    </li>
+                    <li class="tech-item">
+                        <div class="tech-name">Ollama (Qwen 3 8B)</div>
+                        <div class="tech-purpose">Local LLM enriching simple prompts with historical attire.</div>
+                    </li>
+                    <li class="tech-item">
+                        <div class="tech-name">RealESRGAN + NVIDIA DGX</div>
+                        <div class="tech-purpose">Runs locally on DGX Spark, upscaling artwork to high-res.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Storage & DevOps -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i data-lucide="database"></i></div>
+                    <div class="card-title">Knowledge & DevOps</div>
+                </div>
+                <ul class="tech-list">
+                    <li class="tech-item">
+                        <div class="tech-name">FAISS Vector Store</div>
+                        <div class="tech-purpose">Retrieves Mughal historical context via semantic search.</div>
+                    </li>
+                    <li class="tech-item">
+                        <div class="tech-name">PostgreSQL + Disk Storage</div>
+                        <div class="tech-purpose">Stores metadata while saving image files by date (YYYY/MM/DD).</div>
+                    </li>
+                    <li class="tech-item">
+                        <div class="tech-name">Docker + NGINX</div>
+                        <div class="tech-purpose">Containerized services with clean reverse-proxy routing.</div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <h2 class="section-title" style="margin-top: 4rem;">Simple Generation Pipeline</h2>
+        <div class="architecture-container" style="max-width: 760px; margin: 0 auto; padding: 2rem;">
+            <div class="arch-node" data-title="1. User Request" data-desc="User enters a simple prompt in the web studio.">1. User Enter Prompt</div>
+            <i data-lucide="arrow-down" class="arch-arrow"></i>
+            <div class="arch-node" data-title="2. Prompt Enhancement" data-desc="Ollama and FAISS enrich the prompt with authentic Mughal colors and historical attire.">2. AI Enhances Historical Details (Ollama Qwen 3 + FAISS)</div>
+            <i data-lucide="arrow-down" class="arch-arrow"></i>
+            <div class="arch-node" style="background: rgba(0, 212, 255, 0.15); border-color: var(--c-cyan);" data-title="3. Image Generation" data-desc="PyTorch Diffusers renders the Mughal artwork using our custom LoRA.">3. GPU Renders Miniature (Flux 1 dev + Custom LoRA on DGX Spark)</div>
+            <i data-lucide="arrow-down" class="arch-arrow"></i>
+            <div class="arch-node" data-title="4. Output Delivery" data-desc="RealESRGAN upscales image, saves to local storage & PostgreSQL, and returns URL.">4. RealESRGAN Upscales & Delivers Artwork to Studio</div>
+        </div>
+
+    </div>
+
+    <!-- Tooltip Element -->
+    <div id="cyber-tooltip" class="cyber-tooltip">
+        <div class="tooltip-title"></div>
+        <div class="tooltip-divider"></div>
+        <div class="tooltip-desc"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

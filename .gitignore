@@ -1,3 +1,7 @@
+# Node
+node_modules/
+dist/
+
 # Python
 __pycache__/
 *.py[cod]
@@ -7,6 +11,7 @@ __pycache__/
 *.swp
 *.swo
 *~
+.DS_Store
 
 # Generated images
 *.png
@@ -17,6 +22,7 @@ __pycache__/
 # Generated output directories
 backend/outputs/
 outputs/
+backend/data/
 
 # Hugging Face caches
 .cache/
@@ -33,25 +39,10 @@ checkpoints/
 .venv/
 venv/
 env/
+backend/.venv/
 
 # Streamlit
 .streamlit/secrets.toml
 
-# Python cache
-__pycache__/
-*.py[cod]
-
-# Generated images
-*.png
-*.jpg
-*.jpeg
-*.webp
-
-# Generated output
-backend/outputs/
-outputs/
-
-# Temporary files
-*.swp
-*.swo
-*~
+# Logs
+*.log

@@ -1,8 +1,7 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
-
 
 function figmaAssetResolver() {
   return {
@@ -16,21 +15,32 @@ function figmaAssetResolver() {
   }
 }
 
-export default defineConfig({
-  plugins: [
-    figmaAssetResolver(),
-    // The React and Tailwind plugins are both required for Make, even if
-    // Tailwind is not being actively used – do not remove them
-    react(),
-    tailwindcss(),
-  ],
-  resolve: {
-    alias: {
-      // Alias @ to the src directory
-      '@': path.resolve(__dirname, './src'),
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
+  
+  return {
+    plugins: [
+      figmaAssetResolver(),
+      react(),
+      tailwindcss(),
+    ],
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+      },
     },
-  },
-
-  // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
-  assetsInclude: ['**/*.svg', '**/*.csv'],
+    server: {
+      proxy: {
+        '/generation-api': {
+          target: 'http://45.120.59.148:32243/notebook/s-jce-cse-109/internship2/proxy/8000',
+          changeOrigin: true,
+          headers: env.VITE_PROXY_COOKIE ? {
+            'Cookie': env.VITE_PROXY_COOKIE
+          } : undefined,
+          rewrite: (path) => path.replace(/^\/generation-api/, ''),
+        }
+      }
+    },
+    assetsInclude: ['**/*.svg', '**/*.csv'],
+  }
 })

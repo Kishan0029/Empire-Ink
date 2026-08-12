@@ -1,22 +1,58 @@
-
-  <!DOCTYPE html>
-  <html lang="en">
+<!doctype html>
+<html lang="en">
     <head>
-      
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Empire &amp; Ink</title>
-      <meta name="description" content="Create stunning Mughal miniature paintings from text prompts using advanced AI technology, perfect for artists and enthusiasts seeking unique digital art." />
-      <meta name="robots" content="noindex, nofollow" />
-      <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
-      
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#121212" />
+        <meta name="description" content="Empire &amp; Ink is a digital atelier dedicated to the preservation and revival of Mughal miniature painting. Create museum-grade royal court artwork using generative AI." />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap" rel="stylesheet" />
+        <link rel="icon" type="image/png" href="/src/imports/Empire___Ink_Logo_2.png" />
+        <title>Empire &amp; Ink | Mughal Miniature Atelier</title>
+        
+        <!-- Vite SPA Entry -->
+        <script type="module" src="/src/main.tsx"></script>
+        
+        <!-- Legacy App Entry -->
+        <script defer src="/static/js/bundle.js"></script>
+        
+        <!-- Setup window for legacy scripts -->
+        <script>
+            if(window.self!==window.top){
+                var s=document.createElement("script");s.src="/visual-edit-overlay.js";document.head.appendChild(s);
+                window.tailwind=window.tailwind||{};tailwind.config={corePlugins:{preflight:false}};
+                var t=document.createElement("script");t.src="https://cdn.tailwindcss.com";document.head.appendChild(t);
+            }
+        </script>
     </head>
+    <body class="bg-[#FAF7F2] dark:bg-[#121212] text-[#222] dark:text-[#F5F0E8] antialiased selection:bg-[#C8A14B]/20 selection:text-[#C8A14B]">
+        <noscript>You need to enable JavaScript to run Empire &amp; Ink.</noscript>
+        
+        <!-- Legacy App mounts here -->
+        <div id="root"></div>
+        
+        <!-- New Vite App mounts here -->
+        <div id="vite-root"></div>
+        
+        <!-- Helpful fallback banner if opened on VS Code Live Server (port 5500) -->
+        <script>
+            window.addEventListener("DOMContentLoaded", function() {
+                setTimeout(function() {
+                    var root = document.getElementById("root");
+                    if (root && root.innerHTML.trim() === "" && (window.location.port === "5500" || window.location.port === "3000" || window.location.protocol === "file:")) {
+                        root.innerHTML = '<div style="font-family: \'Cormorant Garamond\', serif; text-align: center; padding: 120px 20px; color: #C8A14B; background: #121212; min-height: 100vh;">' +
+                            '<h1 style="font-size: 38px; margin-bottom: 16px; font-weight: 400;">Empire &amp; Ink | Mughal Atelier</h1>' +
+                            '<p style="font-size: 18px; color: #F5F0E8; max-width: 580px; margin: 0 auto 32px; font-family: sans-serif; line-height: 1.6;">' +
+                            'You have opened <code>index.html</code> using a static file server (Port ' + window.location.port + '). React and TypeScript (<code>.tsx</code>) require the Vite Development Server to compile.' +
+                            '</p>' +
+                            '<a href="http://localhost:5173" style="display: inline-block; padding: 14px 32px; background: #C8A14B; color: #121212; text-decoration: none; font-weight: 600; border-radius: 9999px; font-family: sans-serif; font-size: 15px; box-shadow: 0 4px 20px rgba(200,161,75,0.4);">' +
+                            'Open Vite Dev Server (http://localhost:5173)' +
+                            '</a></div>';
+                    }
+                }, 400);
+            });
+        </script>
 
-    <body>
-      
-      <div id="root"></div>
-      <script type="module" src="/src/main.tsx"></script>
-      
     </body>
-  </html>
-  
+</html>

@@ -10,7 +10,7 @@
   --popover-foreground: #222222;
   --primary: #C8A14B;
   --primary-foreground: #ffffff;
-  --secondary: #205B4E;
+  --secondary: #6A2332;
   --secondary-foreground: #ffffff;
   --muted: #F0EDE6;
   --muted-foreground: #6F6F6F;
@@ -26,10 +26,10 @@
   --font-weight-normal: 400;
   --ring: #C8A14B;
   --chart-1: #C8A14B;
-  --chart-2: #205B4E;
-  --chart-3: #6A2332;
+  --chart-2: #6A2332;
+  --chart-3: #8A2E3F;
   --chart-4: #d4af58;
-  --chart-5: #2d7a6a;
+  --chart-5: #C8A14B;
   --radius: 1rem;
   --sidebar: #FFFDF8;
   --sidebar-foreground: #222222;
@@ -50,7 +50,7 @@
   --popover-foreground: #F5F0E8;
   --primary: #C8A14B;
   --primary-foreground: #121212;
-  --secondary: #205B4E;
+  --secondary: #6A2332;
   --secondary-foreground: #F5F0E8;
   --muted: #1E1C18;
   --muted-foreground: #9A9A8E;
@@ -66,10 +66,10 @@
   --font-weight-normal: 400;
   --ring: #C8A14B;
   --chart-1: #C8A14B;
-  --chart-2: #205B4E;
-  --chart-3: #6A2332;
+  --chart-2: #6A2332;
+  --chart-3: #8A2E3F;
   --chart-4: #d4af58;
-  --chart-5: #2d7a6a;
+  --chart-5: #C8A14B;
   --sidebar: #0E0E0C;
   --sidebar-foreground: #F5F0E8;
   --sidebar-primary: #C8A14B;
@@ -180,4 +180,20 @@
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
   }
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: pageFadeIn 0.26s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
 }
