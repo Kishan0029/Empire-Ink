@@ -1,5 +1,6 @@
 import os
 import time
+from pathlib import Path
 import torch
 
 from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -13,15 +14,13 @@ from diffusers import FluxPipeline
 FLUX_MODEL = "black-forest-labs/FLUX.1-dev"
 QWEN_MODEL = "Qwen/Qwen2.5-7B-Instruct"
 
-LORA_PATH = os.path.abspath(
-    "mughalz/mughalz.safetensors"
-)
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+LORA_PATH = PROJECT_ROOT / "mughalz" / "mughalz.safetensors"
 
 LORA_STRENGTH = 0.7
 
-OUTPUT_DIR = os.path.abspath(
-    "backend/outputs"
-)
+OUTPUT_DIR = PROJECT_ROOT / "backend" / "outputs"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
