@@ -11,7 +11,7 @@ class Generation(Base):
     original_prompt = Column(String, nullable=False)
     enhanced_prompt = Column(String, nullable=True)
     image_url = Column(String, nullable=True)
-    seed = Column(Integer, nullable=False)
+    seed = Column(Integer, nullable=True)
     width = Column(Integer, default=1024)
     height = Column(Integer, default=1024)
     steps = Column(Integer, default=28)

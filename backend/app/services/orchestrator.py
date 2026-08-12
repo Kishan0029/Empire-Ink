@@ -17,10 +17,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 # For local dev without the real file, we will fallback or error gracefully in tests,
 # but the architecture will be fully integrated.
 try:
-    # Assuming generation_service.py is located at backend/services/generation_service.py
-    import sys
-    sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
-    from backend.services.generation_service import EmpireInkGenerator
+    from services.generation_service import EmpireInkGenerator
     generator_instance = EmpireInkGenerator()
 except ImportError:
     generator_instance = None
