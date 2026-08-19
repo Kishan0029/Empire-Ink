@@ -1,4 +1,7 @@
-# Dependencies
+
+import os
+
+content = '''# Dependencies
 node_modules/
 .pnp
 .pnp.js
@@ -63,3 +66,9 @@ outputs/
 mughalz/*.safetensors
 cloudflared
 cloudflared.exe
+'''
+
+with open('/home/jovyan/empire-and-ink/.gitignore', 'w') as f:
+    f.write(content)
+
+print("Created .gitignore")

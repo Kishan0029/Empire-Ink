@@ -1,3 +1,5 @@
+from diffusers.models.attention_dispatch import AttentionBackendName
+
 import os
 import time
 from pathlib import Path
@@ -84,8 +86,8 @@ class EmpireInkGenerator:
 
         self.qwen = AutoModelForCausalLM.from_pretrained(
             QWEN_MODEL,
-            dtype=torch.bfloat16,
-            device_map="auto",
+            torch_dtype=torch.bfloat16,
+            device_map="cuda",
         )
 
         print("Qwen loaded successfully.")
@@ -102,11 +104,15 @@ class EmpireInkGenerator:
         self.pipe = FluxPipeline.from_pretrained(
             FLUX_MODEL,
             torch_dtype=torch.bfloat16,
+            device_map="cuda",
         )
 
-        self.pipe = self.pipe.to("cuda")
+        self.pipe.transformer.set_attention_backend(
+            AttentionBackendName._NATIVE_EFFICIENT
+        )
 
         print("FLUX loaded successfully.")
+        print("Attention backend: NATIVE_EFFICIENT")
 
     # ========================================================
     # MUGHALZ
@@ -188,7 +194,7 @@ class EmpireInkGenerator:
 
             outputs = self.qwen.generate(
                 **inputs,
-                max_new_tokens=80,
+                max_new_tokens=48,
                 do_sample=False,
             )
 
@@ -216,72 +222,65 @@ class EmpireInkGenerator:
         self,
         user_prompt,
         seed=42,
-        steps=28,
+        steps=4,
         guidance=3.5,
         lora_strength=0.7,
-    ):
+        ):
 
         total_start = time.time()
 
-        # ----------------------------------------------------
-        # QWEN
-        # ----------------------------------------------------
-
+        # Qwen prompt enhancement
         qwen_start = time.time()
-
-        enhanced_prompt = self.enhance_prompt(
-            user_prompt
-        )
-
+        enhanced_prompt = self.enhance_prompt(user_prompt)
         qwen_time = time.time() - qwen_start
 
-        # ----------------------------------------------------
-        # Update LoRA strength
-        # ----------------------------------------------------
-
         self.pipe.set_adapters(
-            ["mughalz"],
-            adapter_weights=[lora_strength],
+        ["mughalz"],
+        adapter_weights=[lora_strength],
         )
-
-        # ----------------------------------------------------
-        # FLUX
-        # ----------------------------------------------------
 
         flux_start = time.time()
 
         generator = torch.Generator(
-            device="cuda"
+        device="cuda"
         ).manual_seed(seed)
 
+        print("\nStarting FLUX generation...")
+        print("Prompt:", enhanced_prompt)
+        print("Steps:", steps)
+        print("LoRA strength:", lora_strength)
+
         image = self.pipe(
-            prompt=enhanced_prompt,
-            height=1024,
-            width=1024,
-            num_inference_steps=steps,
-            guidance_scale=guidance,
-            generator=generator,
+        prompt=enhanced_prompt,
+        height=1024,
+        width=1024,
+        num_inference_steps=steps,
+        guidance_scale=guidance,
+        generator=generator,
         ).images[0]
 
         flux_time = time.time() - flux_start
 
-        # ----------------------------------------------------
-        # SAVE
-        # ----------------------------------------------------
-
         filename = (
-            f"empire_ink_"
-            f"{int(time.time() * 1000)}.png"
+        f"empire_ink_"
+        f"{int(time.time() * 1000)}.png"
         )
 
         output_path = os.path.join(
-            OUTPUT_DIR,
-            filename,
+        OUTPUT_DIR,
+        filename,
         )
 
         image.save(output_path)
 
         total_time = time.time() - total_start
+
+        print("\n==============================")
+        print("GENERATION COMPLETE")
+        print("==============================")
+        print("Image:", output_path)
+        print("FLUX time:", round(flux_time, 2), "seconds")
+        print("Total time:", round(total_time, 2), "seconds")
 
         return {
             "success": True,
@@ -290,7 +289,7 @@ class EmpireInkGenerator:
             "image_path": output_path,
             "filename": filename,
             "seed": seed,
-            "qwen_time": round(qwen_time, 2),
+            "qwen_time": 0,
             "flux_time": round(flux_time, 2),
             "total_time": round(total_time, 2),
         }

@@ -1,4 +1,7 @@
-import React from "react";
+
+import sys
+
+content = '''import React from "react";
 import { Wand2, LogOut } from "lucide-react";
 import { cn } from "../../utils/cn";
 import type { Page } from "../../types";
@@ -42,3 +45,9 @@ export function Sidebar({ page, setPage }: SidebarProps) {
     </aside>
   );
 }
+'''
+
+with open('/home/jovyan/empire-and-ink/src/app/components/layout/Sidebar.tsx', 'w') as f:
+    f.write(content)
+
+print("Sidebar.tsx fixed.")

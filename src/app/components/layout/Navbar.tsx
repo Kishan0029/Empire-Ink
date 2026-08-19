@@ -17,18 +17,7 @@ export interface NavbarProps {
 export function Navbar({ page, setPage, theme, toggleTheme }: NavbarProps) {
   const isLoggedIn = !!getAccessToken();
 
-  const navItems: [string, Page][] = isLoggedIn
-    ? [
-        ["Dashboard", "dashboard"],
-        ["Studio", "studio"],
-        ["Gallery", "gallery"],
-        ["About", "about"],
-      ]
-    : [
-        ["Home", "landing"],
-        ["Gallery", "gallery"],
-        ["About", "about"],
-      ];
+  const navItems: [string, Page][] = [["Home", "landing"], ["Studio", "studio"]];
 
   return (
     <div

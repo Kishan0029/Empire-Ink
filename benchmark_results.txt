@@ -1,0 +1,9 @@
+VRAM BEFORE INIT: 0.00 GB
+INIT TIME: 129.96s
+VRAM AFTER INIT: 49.21 GB
+PEAK VRAM DURING INIT: 49.21 GB
+RUN 1 TIME: 1.15s
+RUN 1 OUTPUT: Mughal emperor in grand palace courtyard, intricate linework, traditional Indian architecture, decorative details, rich colors, flattened perspective.
+RUN 2 TIME: 0.32s
+RUN 2 OUTPUT: Mughal emperor in grand palace courtyard, intricate linework, traditional Indian architecture, decorative details, rich colors, flattened perspective.
+AVG INFERENCE TIME: 0.73s

@@ -1,12 +1,11 @@
-import React from "react";
+
+import sys
+
+content = '''import React from "react";
 import { cn } from "../../../utils/cn";
-const RATIOS = [
-  { name: "1:1", desc: "Square" },
-  { name: "4:3", desc: "Classic" },
-  { name: "3:4", desc: "Portrait" },
-  { name: "16:9", desc: "Widescreen" },
-  { name: "9:16", desc: "Mobile" }
-];
+import {
+  MOCK_RATIOS as RATIOS,
+} from "../../../api/mock/mockData";
 
 function getStepsBadge(val: number) {
   if (val >= 65) return "Masterwork";
@@ -41,7 +40,7 @@ export function StudioControls({
         <h3
           className="text-[#222] dark:text-[#F5F0E8] mb-5"
           style={{
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "\'Cormorant Garamond\', serif",
             fontSize: "1.15rem",
             fontWeight: 600,
           }}
@@ -96,3 +95,8 @@ export function StudioControls({
     </aside>
   );
 }
+'''
+
+with open('/home/jovyan/empire-and-ink/src/app/features/studio/components/StudioControls.tsx', 'w') as f:
+    f.write(content)
+print("Replaced StudioControls.tsx cleanly")

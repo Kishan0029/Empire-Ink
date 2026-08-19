@@ -67,6 +67,7 @@ export function useArtworkGeneration() {
     ) return;
 
     setGenState("submitting");
+    setGeneratedArtwork(null);
     setProgress(0);
     setLineIdx(0);
     setRevealing(false);

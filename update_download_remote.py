@@ -1,4 +1,8 @@
+
+import os
 from pathlib import Path
+
+content = '''from pathlib import Path
 from huggingface_hub import snapshot_download, hf_hub_download
 import os
 
@@ -75,3 +79,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+'''
+
+with open('/home/jovyan/empire-and-ink/download_models.py', 'w') as f:
+    f.write(content)
+
+print("Updated download_models.py")

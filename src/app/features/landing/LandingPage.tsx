@@ -22,14 +22,10 @@ export function LandingPage({ setPage, onSelectArt }: LandingPageProps) {
   return (
     <div className="min-h-screen bg-[#FAF7F2] dark:bg-[#121212] overflow-x-hidden">
       <HeroSection setPage={setPage} />
-      <ShowcaseSection
-        artworks={artworks}
-        setPage={setPage}
-        onSelectArt={onSelectArt}
-      />
+      
       <HowItWorksSection />
       <FeaturesSection />
-      <TestimonialsSection testimonials={testimonials} />
+      
       <CtaSection setPage={setPage} />
       <Footer />
     </div>

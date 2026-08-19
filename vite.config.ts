@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react'
 
 function figmaAssetResolver() {
   return {
+    base: './',
     name: 'figma-asset-resolver',
     resolveId(id) {
       if (id.startsWith('figma:asset/')) {
@@ -19,6 +20,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   
   return {
+    base: './',
     plugins: [
       figmaAssetResolver(),
       react(),

@@ -59,7 +59,7 @@ export const generationService = {
     }
 
     try {
-      const res = await apiClient<{ id: string; status: string }>("/generations", {
+      const res = await apiClient<{ id: string; status: string }>("/generations/", {
         method: "POST",
         body: JSON.stringify(payload),
       });

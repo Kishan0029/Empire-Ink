@@ -1,0 +1,15 @@
+=== PHASE 6: 4-STEP TEST ===
+Enhanced Prompt: Mughal emperor in grand palace courtyard, intricate linework, traditional Indian architecture, decorative details, rich colors, flattened perspective.
+Qwen Time: 0.00s
+FLUX Time: 1.95s
+Total Time: 3.47s
+Image Path: /home/jovyan/empire-and-ink/backend/outputs/empire_ink_1787130405498.png
+
+=== PHASE 7: 20-STEP QUALITY TEST ===
+Enhanced Prompt: Mughal emperor in ornate palace courtyard, attendants, fountains, marble arches, Persian-inspired decorations, intricate linework, traditional Indian architecture, rich colors, flattened perspective.
+Qwen Time: 0.00s
+FLUX Time: 6.05s
+Total Time: 6.93s
+Image Path: /home/jovyan/empire-and-ink/backend/outputs/empire_ink_1787130412257.png
+Peak VRAM: 51.81 GB
+SUCCESS

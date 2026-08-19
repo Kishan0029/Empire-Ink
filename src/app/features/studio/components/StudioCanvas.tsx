@@ -44,7 +44,7 @@ export function StudioCanvas({
   isLoggedIn: isLoggedInProp,
 }: StudioCanvasProps) {
   const ta = useRef<HTMLTextAreaElement>(null);
-  const displayAsset = artworkAsset || MOCK_ARTWORKS[1].asset;
+  const displayAsset = artworkAsset;
   const isLoggedIn = isLoggedInProp ?? !!getAccessToken();
   const [showLoginModal, setShowLoginModal] = useState(false);
 
@@ -164,23 +164,16 @@ export function StudioCanvas({
               style={{ animation: "flare 1.2s ease-out forwards" }}
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/38 transition-all duration-300 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100">
-              <button
-                onClick={() =>
-                  onSelectArt ? onSelectArt(1) : setPage("viewer")
-                }
+              <a
+                href={displayAsset}
+                download="empire_and_ink_generation.png"
+                target="_blank"
+                rel="noreferrer"
                 className="w-10 h-10 rounded-full bg-white/18 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/28 transition-all"
+                title="Download"
               >
-                <Maximize2 size={15} />
-              </button>
-              <button className="w-10 h-10 rounded-full bg-white/18 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/28 transition-all">
                 <Download size={15} />
-              </button>
-              <button className="w-10 h-10 rounded-full bg-white/18 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/28 transition-all">
-                <Heart size={15} />
-              </button>
-              <button className="w-10 h-10 rounded-full bg-white/18 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/28 transition-all">
-                <Share2 size={15} />
-              </button>
+              </a>
             </div>
             <div className="absolute inset-0 rounded-2xl ring-1 ring-[#C8A14B]/40 pointer-events-none" />
           </div>
